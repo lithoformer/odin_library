@@ -1,0 +1,38 @@
+*,body,html{
+    padding:0;
+    margin:0;
+}
+
+.outer{
+    display:flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidebar{
+    display:flex;
+    flex-direction: column;
+    width: 33%;
+    height: 100%;
+    background-image: url("photo-1667312939934-60fc3bfa4ec0.avif");
+    background-position: center;
+    justify-content: center;
+}
+
+.wrapper{
+    background-color: rgb(255,255,255,.25);
+}
+
+.library{
+    display:flex;
+    width:67%;
+    height:100%;
+    background-image: linear-gradient(rgba(119, 107, 91, 0.37), rgba(37, 27, 1, 0.932)),url("photo-1501157095236-a46e5f6274d7.avif");
+    background-position: center;
+}
+
+.outertext{
+    font-family: "Goudy Bookletter 1911","Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 5rem;
+}
