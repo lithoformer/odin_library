@@ -1,4 +1,5 @@
 *,body,html{
+    font-family: "Goudy Bookletter 1911","Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     padding:0;
     margin:0;
 }
@@ -17,22 +18,32 @@
     height: 100%;
     background-image: url("photo-1667312939934-60fc3bfa4ec0.avif");
     background-position: center;
-    justify-content: center;
 }
 
 .wrapper{
     background-color: rgb(255,255,255,.25);
+    margin-top:150px;
 }
 
 .library{
     display:flex;
+    flex-direction: column;
     width:67%;
     height:100%;
-    background-image: linear-gradient(rgba(119, 107, 91, 0.37), rgba(37, 27, 1, 0.932)),url("photo-1501157095236-a46e5f6274d7.avif");
+    background-image: linear-gradient(rgba(119, 107, 91, 0.37), rgba(37, 27, 1, 0.932)),url("photo-1532153955177-f59af40d6472.avif");
     background-position: center;
 }
 
-.outertext{
-    font-family: "Goudy Bookletter 1911","Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+.outertextL{
+    display:flex;
     font-size: 5rem;
+    margin-left: 50px;
+    justify-content: flex-start;
+}
+
+.outertextR{
+    display:flex;
+    font-size: 5rem;
+    margin-right: 50px;
+    justify-content: flex-end;
 }
