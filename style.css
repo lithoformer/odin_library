@@ -18,7 +18,7 @@
     height: 100%;
     background-image: url("photo-1667312939934-60fc3bfa4ec0.avif");
     background-position: center;
-    gap:1rem;
+    gap:5rem;
 }
 
 .wrapperL{
@@ -91,4 +91,9 @@
     font-size: 2rem;
     width:300px;
     height:75px;
+}
+
+.book{
+    height:200px;
+    width:100px;
 }
