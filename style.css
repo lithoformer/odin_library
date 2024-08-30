@@ -18,9 +18,18 @@
     height: 100%;
     background-image: url("photo-1667312939934-60fc3bfa4ec0.avif");
     background-position: center;
+    gap:1rem;
 }
 
-.wrapper{
+.wrapperL{
+    display:flex;
+    background-color: rgb(255,255,255,.25);
+    margin-top:150px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapperR{
     background-color: rgb(255,255,255,.25);
     margin-top:150px;
 }
@@ -32,6 +41,7 @@
     height:100%;
     background-image: linear-gradient(rgba(119, 107, 91, 0.37), rgba(37, 27, 1, 0.932)),url("photo-1532153955177-f59af40d6472.avif");
     background-position: center;
+    justify-content: space-between;
 }
 
 .outertextL{
@@ -46,4 +56,39 @@
     font-size: 5rem;
     margin-right: 50px;
     justify-content: flex-end;
+}
+
+.newBookBtn, .btn{
+    margin-right:50px;
+    width:200px;
+    height:50px;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    background-color: antiquewhite;
+    box-shadow: 5px 5px 5px 5px rgba(53, 53, 53, 0.082);
+}
+
+.content{
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    max-width:80%;
+    max-height:calc(100% - 150px);
+    border: 5px solid black;
+}
+
+.newBook{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap:2rem;
+    opacity:0.85;
+    font-weight: bold;
+}
+
+.newBook input,.newBook select, .newBook label{
+    font-size: 2rem;
+    width:300px;
+    height:75px;
 }
