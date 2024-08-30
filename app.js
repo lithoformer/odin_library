@@ -48,10 +48,11 @@ newBook.onsubmit = function(event){
 }
 
 function populateLibrary(){
-for (Book in myLibrary)
+for (item of myLibrary)
 {
     const newBookElement = document.createElement('div');
-    newBookElement.textContent = Book.title;
+    console.log(item.title);
+    newBookElement.textContent = item.title;
     newBookElement.classList.add('book');
     content.appendChild(newBookElement);
 }
