@@ -10,15 +10,6 @@ function Book(title, author, pages, read, index, red, green, blue) {
     this.red = red;
     this.green = green;
     this.blue = blue;
-    let didRead = '';
-    this.info = function() {
-        if (read) {
-            didRead = "read"
-        } else {
-            didRead = "not read"
-        }
-        return `${title} by ${author}, ${numPages} pages, ${didRead}`;
-    }
 }
 
 function addBookToLibrary(title, author, pages, read, index, red, green, blue) {
@@ -35,7 +26,6 @@ const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 const read = document.querySelector('#read');
-
 const newBookButton = document.querySelector(".newBookBtn");
 
 newBookButton.addEventListener("click", () => {
@@ -69,15 +59,15 @@ function populateLibrary() {
         bookAuthor.textContent = myLibrary[j].author;
         bookAuthor.classList.add('bookText');
         bookTitle.textContent = myLibrary[j].title;
-      bookTitle.classList.add('bookText');
-      if (myLibrary[j].read === 'Yes') {
-        bookRead.textContent = 'read';
-      }
-      else {
-        bookRead.textContent = 'not read';
-      }
+        bookTitle.classList.add('bookText');
+        if (myLibrary[j].read === 'Yes') {
+          bookRead.textContent = 'read';
+        }
+        else {
+          bookRead.textContent = 'not read';
+        }
         newBookElement.appendChild(bookTitle);
-      newBookElement.appendChild(bookAuthor);
+        newBookElement.appendChild(bookAuthor);
         newBookElement.style.backgroundColor = `rgb(${myLibrary[j].red},${myLibrary[j].green},${myLibrary[j].blue})`;
         const removeBtn = document.createElement('button');
         removeBtn.textContent = `remove`;
@@ -97,7 +87,7 @@ function populateLibrary() {
         populateLibrary();
       })
       newBookElement.appendChild(bookRead);
-        content.appendChild(newBookElement);
+      content.appendChild(newBookElement);
     }
 }
 
