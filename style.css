@@ -64,7 +64,7 @@ html {
 .btn {
     margin-right: 50px;
     width: 200px;
-    height: 50px;
+    height: 100px;
     border-radius: 2rem;
     font-size: 1.5rem;
     background-color: antiquewhite;
@@ -102,19 +102,38 @@ html {
 
 .book {
     display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     height: 300px;
     width: 150px;
+    padding: 15px;
     border: 1px solid black;
     box-sizing: border-box;
 
 }
 
 .bookText {
-    width: 80%;
-    height: 50%;
+    width: 25%;
+    height: 75%;
+    font-size: 1.25rem;
+    writing-mode: vertical-rl;
+}
+
+.bookBtn{
+    min-height:25px;
+    min-width:75px;
     font-size: 1rem;
-    transform: rotate(-90deg);
+    border-radius: 1rem;
+    box-shadow: 5px 5px 5px 5px rgba(83, 79, 79, 0.178);
+}
+
+.buttonContainer{
+    min-height:70px;
+    min-width: 75px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
