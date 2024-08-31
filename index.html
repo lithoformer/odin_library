@@ -16,13 +16,14 @@
         <div class="sidebar">
             <div class="wrapperL"><span class="outertextL">Odin Library</span><button class="newBookBtn btn">Add a New
                     Book</button></div>
-            <form class="newBook" novalidate>
+            <form class="newBook" id="newBook" novalidate>
                 <div class="title"><label for="title">Title*</label><br><input type="text" name="title" id="title"
-                        placeholder="War and Peace" minlength="2" maxlength="20" required></div>
+                        placeholder="War and Peace" pattern="^\S.*[0-9a-zA-Z\W]+$" required></div>
                 <div class="author"><label for="author">Author*</label><br><input type="text" name="author" id="author"
-                        placeholder="Leo Tolstoy" minlength="2" maxlength="20" required></div>
+                        placeholder="Leo Tolstoy" pattern="^[^\s\W]+[^\W][a-zA-Z.\-'_\s\x22]+$" required>
+                </div>
                 <div class="pages"><label for="pages">Pages*</label><br><input type="text" name="pages" id="pages"
-                        placeholder="864" required>
+                        placeholder="1352" pattern="^[0-9]{1,5}$" required>
                 </div>
                 <div class="read"><label for="read">Read? Y/N*</label><br><select name="read" id="read" required>
                         <option value="Yes">Yes</option>
@@ -31,11 +32,18 @@
                 </div>
                 <button type="submit" class="submitButton btn">Add To Library</button>
             </form>
+            <footer class="footer sidebarFooter">Image by <a href="https://unsplash.com/@kaboompics">Karolina
+                    Grabowska</a>
+                on <a href="https://unsplash.com">Unsplash</a></footer>
         </div>
         <div class="library">
             <div class="wrapperR"><span class="outertextR">Books</span>
             </div>
             <div class="content" id="content"></div>
+            <footer class="footer libraryFooter">Image by <a href="https://unsplash.com/@anniespratt">Annie Spratt</a>
+                on
+                <a href="https://unsplash.com">Unsplash</a>
+            </footer>
         </div>
     </div>
     <script src="./app.js"></script>

@@ -1,6 +1,10 @@
 const rgb = 255;
 const myLibrary = [];
 
+document.getElementById('newBook').addEventListener('input',function(){
+    validateForm();
+});
+
 function Book(title, author, pages, read, index, red, green, blue) {
     this.title = title;
     this.author = author;
@@ -9,15 +13,13 @@ function Book(title, author, pages, read, index, red, green, blue) {
     this.index = index;
     this.red = red;
     this.green = green;
-  this.blue = blue;
-  this.toggleRead = function () {
-    if (this.read === 'Yes')
-      {
-      this.read = 'No'
-    }
-    else
-    {
-      this.read = 'Yes'
+    this.blue = blue;
+    this.toggleRead = function () {
+      if (this.read === 'Yes') {
+        this.read = 'No'
+      }
+      else {
+        this.read = 'Yes'
       }
   }
 }
@@ -36,10 +38,12 @@ const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 const read = document.querySelector('#read');
+const footer = document.querySelector('.sidebarFooter');
 const newBookButton = document.querySelector('.newBookBtn');
 
 newBookButton.addEventListener("click", () => {
-    sidebar.appendChild(newBook);
+  newBook.style.visibility = 'visible';
+  addButton.disabled = true;
 })
 
 newBook.onsubmit = function(event) {
@@ -52,7 +56,7 @@ newBook.onsubmit = function(event) {
     newBook.title.value = "";
     newBook.author.value = "";
     newBook.pages.value = "";
-    sidebar.removeChild(newBook);
+    newBook.style.visibility = 'hidden';
     populateLibrary();
 }
 
@@ -79,13 +83,13 @@ function populateLibrary() {
         }
         newBookElement.appendChild(bookTitle);
         newBookElement.appendChild(bookAuthor);
-      newBookElement.style.backgroundColor = `rgb(${myLibrary[j].red},${myLibrary[j].green},${myLibrary[j].blue})`;
-      newBookElement.style.background = `linear-gradient(90deg,rgba(${myLibrary[j].red},${myLibrary[j].green},${myLibrary[j].blue},.75),rgba(0,0,0,.75))`
-      newBookElement.style.color = 'white';
-      const removeBtn = document.createElement('button');
-      removeBtn.style.backgroundColor = 'antiquewhite';
-      removeBtn.style.border = 'none';
-      removeBtn.classList.add('bookBtn');
+        newBookElement.style.backgroundColor = `rgb(${myLibrary[j].red},${myLibrary[j].green},${myLibrary[j].blue})`;
+        newBookElement.style.background = `linear-gradient(90deg,rgba(${myLibrary[j].red},${myLibrary[j].green},${myLibrary[j].blue},.75),rgba(0,0,0,.75))`
+        newBookElement.style.color = 'white';
+        const removeBtn = document.createElement('button');
+        removeBtn.style.backgroundColor = 'antiquewhite';
+        removeBtn.style.border = 'none';
+        removeBtn.classList.add('bookBtn');
         removeBtn.textContent = `remove`;
         removeBtn.addEventListener('click', () => {
             myLibrary.splice(j, 1);
@@ -112,9 +116,62 @@ function rnd(val) {
     return Math.floor(Math.random() * val);
 }
 
+function validateForm() {
+
+let isValid = true;
+
+if(!title.value || !author.value || !pages.value || !read.value)
+{
+    isValid = false;
+}
+
+if(title.validity.patternMismatch)
+{
+    title.classList.remove('success');
+    title.classList.add('error');
+    isValid = false;
+}
+else{
+    title.classList.remove('error');
+    title.classList.add('success');
+}
+  
+if(author.validity.patternMismatch)
+{
+    author.classList.remove('success');
+    author.classList.add('error');
+    isValid = false;
+}
+else{
+    author.classList.remove('error');
+    author.classList.add('success');
+}
+  
+if(pages.validity.patternMismatch)
+{
+    pages.classList.remove('success');
+    pages.classList.add('error');
+    isValid = false;
+}
+else{
+    pages.classList.remove('error');
+    pages.classList.add('success');
+}
+
+if(isValid){
+    addButton.classList.add('enabled');
+    addButton.disabled = false;
+}
+else{
+    addButton.classList.remove('enabled');
+    addButton.disabled = true;
+}
+}
+
+newBook.style.visibility = 'hidden';
+
 addBookToLibrary('War and Peace', 'Leo Tolstoy', 500, 'Yes', 0, 150, 150, 150);
 addBookToLibrary('Dragons of Summer Flame', 'Margaret Weis, Tracy Hickman', 789, 'No', 1, 150, 100, 12);
 addBookToLibrary('Cryptoassets', 'Jack Tatar, Chris Burniske', 300, 'Yes', 2, 10, 255, 100);
 addBookToLibrary('The Three-Body Problem', 'Cixin Liu', 325, 'Yes', 3, 33, 67, 2);
-addBookToLibrary('This is an Extremely Long Book Title', 'Zhiguang Zhang', 500, 'No', 4, 50, 200, 255);
 populateLibrary();
