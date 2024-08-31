@@ -131,6 +131,7 @@ html {
     height: 75%;
     font-size: 1.25rem;
     writing-mode: vertical-rl;
+    text-shadow: 2px 2px 2px 2px whitesmoke;
 }
 
 .bookBtn{

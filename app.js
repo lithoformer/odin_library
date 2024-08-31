@@ -87,7 +87,7 @@ function populateLibrary() {
         newBookElement.appendChild(bookTitle);
         newBookElement.appendChild(bookAuthor);
         newBookElement.style.backgroundColor = `rgb(${myLibrary[j].red},${myLibrary[j].green},${myLibrary[j].blue})`;
-        newBookElement.style.background = `linear-gradient(90deg,rgba(${myLibrary[j].red},${myLibrary[j].green},${myLibrary[j].blue},.75),rgba(0,0,0,.75))`
+        newBookElement.style.background = `linear-gradient(90deg,rgba(${myLibrary[j].red},${myLibrary[j].green},${myLibrary[j].blue},.85),rgba(0,0,0,.85))`
         newBookElement.style.color = 'white';
         const removeBtn = document.createElement('button');
         removeBtn.style.backgroundColor = 'antiquewhite';
@@ -173,7 +173,7 @@ else{
 
 newBook.style.visibility = 'hidden';
 
-addBookToLibrary('War and Peace', 'Leo Tolstoy', 500, 'Yes', 0, 150, 150, 150);
+addBookToLibrary('War and Peace', 'Leo Tolstoy', 1352, 'Yes', 0, 150, 150, 150);
 addBookToLibrary('Dragons of Summer Flame', 'Margaret Weis, Tracy Hickman', 789, 'No', 1, 150, 100, 12);
 addBookToLibrary('Cryptoassets', 'Jack Tatar, Chris Burniske', 300, 'Yes', 2, 10, 255, 100);
 addBookToLibrary('The Three-Body Problem', 'Cixin Liu', 325, 'Yes', 3, 33, 67, 2);
