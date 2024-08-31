@@ -44,6 +44,9 @@ const newBookButton = document.querySelector('.newBookBtn');
 newBookButton.addEventListener("click", () => {
   newBook.style.visibility = 'visible';
   addButton.disabled = true;
+  author.classList.add('error');
+  title.classList.add('error');
+  pages.classList.add('error');
 })
 
 newBook.onsubmit = function(event) {
@@ -125,7 +128,7 @@ if(!title.value || !author.value || !pages.value || !read.value)
     isValid = false;
 }
 
-if(title.validity.patternMismatch)
+if(title.validity.patternMismatch || !title.value)
 {
     title.classList.remove('success');
     title.classList.add('error');
@@ -136,7 +139,7 @@ else{
     title.classList.add('success');
 }
   
-if(author.validity.patternMismatch)
+if(author.validity.patternMismatch || !author.value)
 {
     author.classList.remove('success');
     author.classList.add('error');
@@ -147,7 +150,7 @@ else{
     author.classList.add('success');
 }
   
-if(pages.validity.patternMismatch)
+if(pages.validity.patternMismatch || !pages.value)
 {
     pages.classList.remove('success');
     pages.classList.add('error');

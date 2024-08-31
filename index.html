@@ -18,9 +18,9 @@
                     Book</button></div>
             <form class="newBook" id="newBook" novalidate>
                 <div class="title"><label for="title">Title*</label><br><input type="text" name="title" id="title"
-                        placeholder="War and Peace" pattern="^\S.*[0-9a-zA-Z\W]+$" required></div>
+                        placeholder="War and Peace" pattern="^\S.*([0-9a-zA-Z\W]{0,})$" required></div>
                 <div class="author"><label for="author">Author*</label><br><input type="text" name="author" id="author"
-                        placeholder="Leo Tolstoy" pattern="^[^\s\W]+[^\W][a-zA-Z.\-'_\s\x22]+$" required>
+                        placeholder="Leo Tolstoy" pattern="^[^\s\W]+([a-zA-Z.\-'_\s\x22^\W]{0,})$" required>
                 </div>
                 <div class="pages"><label for="pages">Pages*</label><br><input type="text" name="pages" id="pages"
                         placeholder="1352" pattern="^[0-9]{1,5}$" required>
