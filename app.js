@@ -1,7 +1,7 @@
 const rgb = 255;
 const myLibrary = [];
 
-document.getElementById('newBook').addEventListener('input',function(){
+document.getElementById('newBook').addEventListener('input', function () {
     validateForm();
 });
 
@@ -15,13 +15,13 @@ function Book(title, author, pages, read, index, red, green, blue) {
     this.green = green;
     this.blue = blue;
     this.toggleRead = function () {
-      if (this.read === 'Yes') {
-        this.read = 'No'
-      }
-      else {
-        this.read = 'Yes'
-      }
-  }
+        if (this.read === 'Yes') {
+            this.read = 'No'
+        }
+        else {
+            this.read = 'Yes'
+        }
+    }
 }
 
 function addBookToLibrary(title, author, pages, read, index, red, green, blue) {
@@ -42,14 +42,14 @@ const footer = document.querySelector('.sidebarFooter');
 const newBookButton = document.querySelector('.newBookBtn');
 
 newBookButton.addEventListener("click", () => {
-  newBook.style.visibility = 'visible';
-  addButton.disabled = true;
-  author.classList.add('error');
-  title.classList.add('error');
-  pages.classList.add('error');
+    newBook.style.visibility = 'visible';
+    addButton.disabled = true;
+    author.classList.add('error');
+    title.classList.add('error');
+    pages.classList.add('error');
 })
 
-newBook.onsubmit = function(event) {
+newBook.onsubmit = function (event) {
     event.preventDefault();
     const r = rnd(rgb);
     const g = rnd(rgb);
@@ -79,10 +79,10 @@ function populateLibrary() {
         bookTitle.textContent = myLibrary[j].title;
         bookTitle.classList.add('bookText');
         if (myLibrary[j].read === 'Yes') {
-          bookRead.textContent = 'read';
+            bookRead.textContent = 'read';
         }
         else {
-          bookRead.textContent = 'not read';
+            bookRead.textContent = 'not read';
         }
         newBookElement.appendChild(bookTitle);
         newBookElement.appendChild(bookAuthor);
@@ -98,20 +98,20 @@ function populateLibrary() {
             myLibrary.splice(j, 1);
             populateLibrary();
         })
-      bookRead.addEventListener('click', () => {
-        console.log(myLibrary[j].read);
-        myLibrary[j].toggleRead();
-        populateLibrary();
-      })
-      bookRead.style.backgroundColor = 'antiquewhite';
-      bookRead.style.border = 'none';
-      bookRead.classList.add('bookBtn');
-      const buttonContainer = document.createElement('div');
-      buttonContainer.classList.add('buttonContainer');
-      buttonContainer.appendChild(bookRead);
-      buttonContainer.appendChild(removeBtn);
-      newBookElement.appendChild(buttonContainer);
-      content.appendChild(newBookElement);
+        bookRead.addEventListener('click', () => {
+            console.log(myLibrary[j].read);
+            myLibrary[j].toggleRead();
+            populateLibrary();
+        })
+        bookRead.style.backgroundColor = 'antiquewhite';
+        bookRead.style.border = 'none';
+        bookRead.classList.add('bookBtn');
+        const buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('buttonContainer');
+        buttonContainer.appendChild(bookRead);
+        buttonContainer.appendChild(removeBtn);
+        newBookElement.appendChild(buttonContainer);
+        content.appendChild(newBookElement);
     }
 }
 
@@ -121,54 +121,50 @@ function rnd(val) {
 
 function validateForm() {
 
-let isValid = true;
+    let isValid = true;
 
-if(!title.value || !author.value || !pages.value || !read.value)
-{
-    isValid = false;
-}
+    if (!title.value || !author.value || !pages.value || !read.value) {
+        isValid = false;
+    }
 
-if(title.validity.patternMismatch || !title.value)
-{
-    title.classList.remove('success');
-    title.classList.add('error');
-    isValid = false;
-}
-else{
-    title.classList.remove('error');
-    title.classList.add('success');
-}
-  
-if(author.validity.patternMismatch || !author.value)
-{
-    author.classList.remove('success');
-    author.classList.add('error');
-    isValid = false;
-}
-else{
-    author.classList.remove('error');
-    author.classList.add('success');
-}
-  
-if(pages.validity.patternMismatch || !pages.value)
-{
-    pages.classList.remove('success');
-    pages.classList.add('error');
-    isValid = false;
-}
-else{
-    pages.classList.remove('error');
-    pages.classList.add('success');
-}
+    if (title.validity.patternMismatch || !title.value) {
+        title.classList.remove('success');
+        title.classList.add('error');
+        isValid = false;
+    }
+    else {
+        title.classList.remove('error');
+        title.classList.add('success');
+    }
 
-if(isValid){
-    addButton.classList.add('enabled');
-    addButton.disabled = false;
-}
-else{
-    addButton.classList.remove('enabled');
-    addButton.disabled = true;
-}
+    if (author.validity.patternMismatch || !author.value) {
+        author.classList.remove('success');
+        author.classList.add('error');
+        isValid = false;
+    }
+    else {
+        author.classList.remove('error');
+        author.classList.add('success');
+    }
+
+    if (pages.validity.patternMismatch || !pages.value) {
+        pages.classList.remove('success');
+        pages.classList.add('error');
+        isValid = false;
+    }
+    else {
+        pages.classList.remove('error');
+        pages.classList.add('success');
+    }
+
+    if (isValid) {
+        addButton.classList.add('enabled');
+        addButton.disabled = false;
+    }
+    else {
+        addButton.classList.remove('enabled');
+        addButton.disabled = true;
+    }
 }
 
 newBook.style.visibility = 'hidden';
